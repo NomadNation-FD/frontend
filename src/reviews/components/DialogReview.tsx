@@ -75,7 +75,7 @@ export function DialogReview() {
                                 ? "bg-cover opacity-75"
                                 : "bg-none opacity-100"
                                 }`
-                                + " min-h-[300px] bg-cover flex justify-center items-center text-[#757575] rounded border cursor-pointer bg-gray-200"
+                                + " min-h-[300px] bg-cover flex justify-center items-center text-[#757575] rounded-sm border cursor-pointer bg-gray-200"
                             }
                             style={{
                                 backgroundImage: review?.media?.[0]
