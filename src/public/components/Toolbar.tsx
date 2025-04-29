@@ -1,7 +1,6 @@
-import { Avatar } from "@/components/ui/avatar";
 import { IAMContext } from "@/iam/contexts/iam-context";
 import { useLogOut } from "@/iam/hooks/useLogOut";
-import { Button } from "@chakra-ui/react";
+import { Avatar, Button } from "@mui/material";
 import { useContext } from "react";
 import { Link } from "react-router";
 import { Sidebar } from "./Sidebar";
@@ -36,8 +35,23 @@ function ToolbarButtons() {
                             <p className="text-white font-montserrat font-medium">{user.name}</p>
                         </div>
                         <Button
-                            className="font-roboto font-semibold text-white bg-gray-900 hover:bg-gray-500 p-4"
-                            onClick={logOut}>
+                            variant="contained"
+                            sx={
+                                {
+                                    backgroundColor: "#18181c",
+                                    "&:hover": {
+                                        backgroundColor: "#383842 "
+                                    },
+                                    fontFamily: "Roboto",
+                                    fontWeight: "700",
+                                    color: "#fff",
+                                    textTransform: "none",
+                                    fontSize: "1rem",
+                                    letterSpacing: "0"
+                                }
+                            }
+                            onClick={logOut}
+                        >
                             Cerrar sesión
                         </Button>
                     </>
@@ -45,13 +59,45 @@ function ToolbarButtons() {
                     <>
                         <Link to="/sign-in">
                             <Button
-                                className="font-roboto font-semibold text-white bg-gray-900 hover:bg-gray-500 p-4 w-full">
+                                variant="contained"
+                                sx={
+                                    {
+                                        backgroundColor: "#18181c",
+                                        "&:hover": {
+                                            backgroundColor: "#383842 "
+                                        },
+                                        fontFamily: "Roboto",
+                                        fontWeight: "700",
+                                        color: "#fff",
+                                        width: "100%",
+                                        textTransform: "none",
+                                        fontSize: "1rem",
+                                        letterSpacing: "0"
+                                    }
+                                }
+                            >
                                 Iniciar sesión
                             </Button>
                         </Link>
                         <Link to="/sign-up">
                             <Button
-                                className="font-roboto font-semibold text-gray-900 bg-white hover:bg-gray-50 p-4 w-full">
+                                variant="contained"
+                                sx={
+                                    {
+                                        backgroundColor: "#fff",
+                                        "&:hover": {
+                                            backgroundColor: "#bcc0c3"
+                                        },
+                                        fontFamily: "Roboto",
+                                        fontWeight: "600",
+                                        color: "#18181c",
+                                        width: "100%",
+                                        textTransform: "none",
+                                        fontSize: "1rem",
+                                        letterSpacing: "0",
+                                    }
+                                }
+                            >
                                 Registrarse
                             </Button>
                         </Link>
