@@ -12,12 +12,11 @@ export function LoginForm() {
     };
 
     return (
-        <div className="flex flex-col min-h-dvh justify-center">
+        <div className="flex flex-col min-h-dvh justify-center w-8/10 md:w-1/2 xl:w-1/4 mx-auto">
             <Snackbar
                 open={open}
                 autoHideDuration={6000}
                 anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
-                onClose={() => { }}
                 message={snackbarMessage}
                 action={
                     <Button color="inherit" onClick={closeSnackbar} >X</Button>
@@ -25,28 +24,30 @@ export function LoginForm() {
             />
             <form
                 onSubmit={onSubmit}
-                className="bg-gray-100 h-[550px] justify-evenly items-center flex flex-col w-1/3 mx-auto rounded-lg shadow-lg">
+                className="bg-gray-100 flex flex-col items-center gap-20 rounded-lg shadow-lg py-10">
                 <h2 className="text-center font-montserrat font-semibold text-[36px]">
                     Bienvenido
                 </h2>
-                <Input
-                    type="email"
-                    name="email"
-                    value={user.email}
-                    onChange={(e) => handleChange("email", e.target.value)}
-                    placeholder="Correo electrónico"
-                    className="w-1/2 bg-white px-5"
-                    disableUnderline
-                />
-                <Input
-                    type="password"
-                    name="password"
-                    value={user.password}
-                    onChange={(e) => handleChange("password", e.target.value)}
-                    placeholder="Contraseña"
-                    className="w-1/2 bg-white px-5"
-                    disableUnderline
-                />
+                <div className="w-full flex flex-col gap-5 items-center">
+                    <Input
+                        type="email"
+                        name="email"
+                        value={user.email}
+                        onChange={(e) => handleChange("email", e.target.value)}
+                        placeholder="Correo electrónico"
+                        className="w-3/4 bg-white px-5"
+                        disableUnderline
+                    />
+                    <Input
+                        type="password"
+                        name="password"
+                        value={user.password}
+                        onChange={(e) => handleChange("password", e.target.value)}
+                        placeholder="Contraseña"
+                        className="w-3/4 bg-white px-5"
+                        disableUnderline
+                    />
+                </div>
                 <Button
                     type="submit"
                     variant="contained"

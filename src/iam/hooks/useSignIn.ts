@@ -57,6 +57,5 @@ export function useSignIn() {
         setOpen(false);
     };
 
-
     return { user: userRequest, handleChange, handleSubmit, open, snackbarMessage, closeSnackbar };
 }
