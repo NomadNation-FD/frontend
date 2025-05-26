@@ -14,8 +14,8 @@ const plugins = [Autoplay({ delay: 4500 })]
 
 export function HomeCarousel() {
     return (
-        <div className="px-40 bg-blue pt-5 pb-14">
-            <Carousel img={images} className="rounded-lg" options={options} plugins={plugins} />
+        <div className="bg-blue px-2 lg:px-15 xl:px-30 pt-5 pb-14 ">
+            <Carousel img={images} className="rounded-lg " options={options} plugins={plugins} />
         </div>
     )
 }
