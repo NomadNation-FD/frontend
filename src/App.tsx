@@ -9,11 +9,11 @@ import { RegisterForm } from "./iam/components/RegisterForm";
 export function App() {
     return (
         <IAMContextProvider>
-            <Toolbar />
+            {/* <Toolbar /> */}
             <Routes>
-                <Route path="/" element={<Home />} />
+                {/* <Route path="/" element={<Home />} />
                 <Route path="/sign-in" element={<LoginForm />} />
-                <Route path="/sign-up" element={<RegisterForm />} />
+                <Route path="/sign-up" element={<RegisterForm />} /> */}
                 <Route path="/offers/:offerId" element={<OfferDetails />} />
             </Routes>
         </IAMContextProvider>
