@@ -12,11 +12,9 @@ export function App() {
             <Toolbar />
             <Routes>
                 <Route path="/" element={<Home />} />
-                {/* 
                 <Route path="/sign-in" element={<LoginForm />} />
                 <Route path="/sign-up" element={<RegisterForm />} />
-                <Route path="/offers/:offerId" element={<OfferDetails />} />
-                */}
+                {/* <Route path="/offers/:offerId" element={<OfferDetails />} /> */}
             </Routes>
 
         </IAMContextProvider>

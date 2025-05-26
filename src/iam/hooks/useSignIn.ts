@@ -2,7 +2,6 @@ import { useContext, useState } from "react";
 import { IAMApi } from "../services/iam-api";
 import { User } from "../model/user";
 import { useNavigate } from "react-router";
-import { toaster } from "@/components/ui/toaster";
 import { IAMContext } from "../contexts/iam-context";
 import { ProfileApi } from "../services/profile-api";
 
@@ -12,6 +11,8 @@ const profileApi = new ProfileApi();
 export function useSignIn() {
     const navigate = useNavigate();
     const [userRequest, setUserRequest] = useState<User>(new User("", "", "", ""));
+    const [open, setOpen] = useState(false);
+    const [snackbarMessage, setSnackbarMessage] = useState("");
     const { setLoggedIn, setUser } = useContext(IAMContext);
 
     const handleChange = (name: keyof User, value: string) => {
@@ -47,12 +48,14 @@ export function useSignIn() {
                 500: "Error en el servidor",
             };
 
-            toaster.create({
-                description: errorMessages[status],
-                type: "error",
-            });
+            setSnackbarMessage(errorMessages[status]);
+            setOpen(true);
         }
     };
 
-    return { user: userRequest, handleChange, handleSubmit };
+    const closeSnackbar = () => {
+        setOpen(false);
+    };
+
+    return { user: userRequest, handleChange, handleSubmit, open, snackbarMessage, closeSnackbar };
 }
