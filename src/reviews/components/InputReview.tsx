@@ -25,7 +25,7 @@ export function InputReview({ reviewId }: { reviewId: string }) {
                 value={comment.comment || ""}
                 onChange={(e) => handleChange("comment", e.target.value)} />
             <Button
-                className="w-1/6"
+                className="lg:w-1/6"
                 variant="contained"
                 sx={{
                     backgroundColor: "#18181c",
