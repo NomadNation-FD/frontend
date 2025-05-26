@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { Offer } from "../model/offer";
 import { OfferApi } from "../services/offer-api";
 import { OfferCard } from "./OfferCard";
-import { Skeleton, SkeletonText } from "@/components/ui/skeleton"
 
 const api = new OfferApi();
 
@@ -17,27 +16,14 @@ export function OfferList() {
     }, []);
 
     return (
-        <div className="px-40 py-10">
-            <div className="text-center mb-12 font-montserrat">
-                <h2 className="text-3xl font-semibold">Conoce nuestras ofertas</h2>
-            </div>
-
-            <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="px-4 md:p-0 flex flex-col gap-10 mt-10">
+            <h2 className="text-center text-3xl md:text-4xl lg:text-5xl font-montserrat font-semibold w-8/10 mx-auto md:w-full">Conoce nuestras ofertas</h2>
+            <div className="w-fit mx-auto grid grid-cols-1 gap-y-12 gap-x-15 lg:gap-x-5 2xl:gap-x-10 md:grid-cols-2 lg:grid-cols-3 place-items-center">
                 {
-                    offers.length ?
-                        offers.map((offer) =>
-                            <OfferCard key={offer.id} offer={offer} />
-                        ) :
-                        Array.from({ length: 6 }).map((_, index) => (
-                            <div key={index} className="flex flex-col h-[430px]">
-                                <Skeleton height="285px" />
-                                <SkeletonText noOfLines={6} />
-                            </div>
-                        ))
-
+                    offers.length > 0 &&
+                    offers.map((offer) => <OfferCard key={offer.id} offer={offer} />)
                 }
             </div>
         </div>
     )
-
 }
