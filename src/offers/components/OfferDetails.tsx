@@ -1,5 +1,4 @@
 import { Carousel } from "@/public/components/Carousel";
-import { Card } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { Offer } from "../model/offer";
@@ -24,24 +23,20 @@ export function OfferDetails() {
         <>
             {
                 offer &&
-                <Card.Root flexDirection="row" className="w-2/3 mx-auto my-10 gap-2">
-                    <Carousel options={options} img={offer.images} className="w-2/3 rounded-[5px]" />
-                    <div className="flex flex-col w-max p-4 justify-center gap-10" >
-                        <Card.Title className="text-5xl">
-                            {offer.destination}
-                        </Card.Title>
-                        <Card.Description className="text-lg">
-                            {offer.description}
-                        </Card.Description>
-                        <Card.Footer className="font-bold px-0 text-m">
-                            Desde S/{offer.price}
-                        </Card.Footer>
+                <>
+                    <div className="flex flex-col-reverse md:flex-row items-center gap-10 w-9/10 xl:w-6/10 mx-auto my-10">
+                        <Carousel options={options} img={offer.images} className="rounded-xs md:w-1/2 xl:w-6/10" />
+                        <div className="flex flex-col gap-5 font-montserrat md:flex-1">
+                            <h2 className="font-semibold text-5xl">{offer.destination}</h2>
+                            <p className="font-normal text-2xl">{offer.description}</p>
+                            <p className="font-semibold text-2xl">Desde S/{offer.price}</p>
+                        </div>
                     </div>
-                </Card.Root >
+                    <ReviewContextProvider>
+                        <ReviewList />
+                    </ReviewContextProvider>
+                </>
             }
-            <ReviewContextProvider>
-                <ReviewList />
-            </ReviewContextProvider>
         </>
     );
 }

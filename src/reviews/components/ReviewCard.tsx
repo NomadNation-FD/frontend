@@ -1,4 +1,4 @@
-import { Avatar } from "@/components/ui/avatar";
+import Avatar from '@mui/material/Avatar';
 import { Carousel } from "@/public/components/Carousel";
 import { Review } from "../model/review";
 import { CommentList } from "./CommentList";
@@ -9,16 +9,14 @@ const options = {
 
 export function ReviewCard({ review }: { review: Review }) {
     return (
-        <div className="review__card flex flex-col gap-[15px] shadow-lg rounded-[5px] overflow-hidden p-[15px]">
-            <div className="review__card-author flex items-center gap-[10px]">
+        <div className="flex flex-col gap-5 shadow-lg rounded-lg p-5">
+            <div className="flex items-center gap-3">
                 <Avatar src={review.author?.profilePicture} />
-                <h3 className="review__author font-semibold text-[16px]">{review.author?.name}</h3>
+                <h3 className="font-semibold text-2xl">{review.author?.name}</h3>
             </div>
-            <h3 className="review__title font-medium text-[24px]">{review.title}</h3>
-            <p className="review__post font-roboto text-[16px] text-gray-600">{review.post}</p>
-            <div className="review__card-image w-[850px] h-[430px] rounded-[10px] overflow-hidden shadow-lg self-center">
-                <Carousel img={review.media as string[]} options={options} />
-            </div>
+            <h3 className="font-medium text-4xl">{review.title}</h3>
+            <p className="font-roboto text-xl text-gray-600">{review.post}</p>
+            <Carousel img={review.media as string[]} options={options} className='rounded-sm shadow-lg' />
             <CommentList reviewId={review.id} comments={review.comments ?? []} />
         </div>
     );
