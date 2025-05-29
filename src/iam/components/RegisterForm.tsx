@@ -38,7 +38,7 @@ export function RegisterForm() {
             />
             <form
                 onSubmit={onSubmit}
-                className="bg-gray-100 flex flex-col items-center gap-20 rounded-lg shadow-lg py-10">
+                className="bg-gray-100 flex flex-col items-center gap-10 rounded-lg shadow-lg py-10">
                 <h2 className="text-center font-montserrat font-semibold text-[36px]">
                     Únete
                 </h2>
@@ -53,7 +53,15 @@ export function RegisterForm() {
                             onChange={(e) => handleFileChange(e.target.files?.[0] || null)}
                             className="hidden"
                         />
-                        <Avatar src={previewUrl || ""} />
+                        <div className="w-30">
+                            <Avatar
+                                src={previewUrl || ""}
+                                sx={{
+                                    width: "100%",
+                                    height: "auto",
+                                    aspectRatio: "1/1"
+                                }} />
+                        </div>
                     </label>
                     <Input
                         type="text"
